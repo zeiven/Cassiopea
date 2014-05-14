@@ -182,7 +182,6 @@ if((sottr>250) ){
 			nemici.get(i).draw(g);
 		}
 		barraVita.draw(g);
-		barraVitaBollicine.draw(g);
 		if(Cassiopea.livelloBonusFine==true){
 			System.out.println("cosa succede????");	
 				gsm.currentState=gsm.LEVEL1STATE;
