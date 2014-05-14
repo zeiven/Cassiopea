@@ -37,7 +37,7 @@ public class Onde extends Nemico {
 			
 			BufferedImage spritesheet = ImageIO.read(
 				getClass().getResourceAsStream(
-						"/Sprites/Enemies/onde.gif"
+						"/Sprites/Enemies/onde1.gif"
 				)
 			);
 			
