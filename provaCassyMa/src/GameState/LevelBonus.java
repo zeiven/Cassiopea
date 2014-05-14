@@ -84,11 +84,9 @@ private void popoliamoNemici() {
 //		
 		Bollicina f;
 		Point[] points2 = new Point[] {
-			new Point(400, 250),
-			new Point(660, 200),
-			new Point(1300, 300),
-			new Point(1400, 300),
-			new Point(1100, 300)
+			new Point(500, 100),
+			new Point(1950, 160),
+			
 		};
 		for(int i = 0; i < points2.length; i++) {
 			f = new Bollicina(mattonciniMap);
@@ -110,7 +108,13 @@ private void popoliamoNemici() {
 			new Point(580, 250),
 			new Point(510, 250),
 			new Point(540, 250),
-			new Point(570, 250)
+			new Point(570, 250),
+			new Point(600, 250),
+			new Point(630, 250),
+			new Point(660, 250),
+			new Point(690, 250),
+			new Point(620, 250),
+			new Point(650, 250)
 			
 			
 		};

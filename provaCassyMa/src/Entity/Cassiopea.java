@@ -211,7 +211,7 @@ public class Cassiopea extends MapObject {
 
 			
 			// check enemy collision
-			if(!(e instanceof Fitoplancton) && !(e instanceof Bollicina)){
+			if(!(e instanceof Fitoplancton) && !(e instanceof Bollicina) && !(e instanceof FineLivello) && !(e instanceof OggettoInvisibile)){
 			if(intersects(e)) {
 				hit(e.getDamage());}
 			}
