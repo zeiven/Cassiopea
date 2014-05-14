@@ -20,7 +20,8 @@ public class LevelBonus extends GameState {
 	private Cassiopea cassiopea;
 	
 	private ArrayList<Nemico> nemici;
-	private BarraVitaBollicine barraVita;
+	private BarraVitaBollicine barraBollicine;
+	private BarraVita barraVita;
 	
 	
 	public LevelBonus(GameStateManager gameStateManagerBONUS) {
@@ -46,7 +47,8 @@ public class LevelBonus extends GameState {
 		
 		
 		popoliamoNemici();
-		barraVita= new BarraVitaBollicine(cassiopea);
+		barraVita=new BarraVita(cassiopea);
+		barraBollicine= new BarraVitaBollicine(cassiopea);
 		System.out.println("hai caricato il mondo di mammata???");
 	}
 	
@@ -182,6 +184,7 @@ if((sottr>250) ){
 			nemici.get(i).draw(g);
 		}
 		barraVita.draw(g);
+		barraBollicine.draw(g);
 		if(Cassiopea.livelloBonusFine==true){
 			System.out.println("cosa succede????");	
 				gsm.currentState=gsm.LEVEL1STATE;
