@@ -1,3 +1,4 @@
+
 package GameState;
 
 import Main.GamePanel;
@@ -17,9 +18,9 @@ public class LevelBonus extends GameState {
 	private Background bg;
 	OggettoInvisibile o;
 	private Cassiopea cassiopea;
-	BarraVita barraVita;
+	
 	private ArrayList<Nemico> nemici;
-	private BarraVitaBollicine barraVitaBollicine;
+	private BarraVitaBollicine barraVita;
 	
 	
 	public LevelBonus(GameStateManager gameStateManagerBONUS) {
@@ -42,11 +43,10 @@ public class LevelBonus extends GameState {
 		cassiopea = new Cassiopea(mattonciniMap);
 		
 		cassiopea.setPosition(200, 80);
-
+		
 		
 		popoliamoNemici();
-		barraVita=new BarraVita(cassiopea);
-		barraVitaBollicine= new BarraVitaBollicine(cassiopea);
+		barraVita= new BarraVitaBollicine(cassiopea);
 		System.out.println("hai caricato il mondo di mammata???");
 	}
 	
