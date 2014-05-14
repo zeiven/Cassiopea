@@ -16,7 +16,7 @@ public class BarraVitaBollicine {
 		try {
 			image = ImageIO.read(
 				getClass().getResourceAsStream(
-					"/BarraVita/hudBoll.gif"
+					"/BarraVita/hudBoll1.gif"
 				)
 			);
 			font = new Font("Arial", Font.PLAIN, 14);
@@ -28,18 +28,18 @@ public class BarraVitaBollicine {
 	
 	public void draw(Graphics2D g) {
 		
-		g.drawImage(image, 0, 10, null);
+		g.drawImage(image, 0, 28, null);
 		g.setFont(font);
 		g.setColor(Color.WHITE);
-		g.drawString(
-			cassiopea.getHealth() + "/" + cassiopea.getMaxHealth(),
-			30,
-			25
-		);
+//		g.drawString(
+//			cassiopea.getHealth() + "/" + cassiopea.getMaxHealth(),
+//			30,
+//			25
+//		);
 		g.drawString(
 		Bollicina.contaCibo+"",
 			30,
-			45
+			63
 		);
 		
 	}

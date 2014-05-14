@@ -17,9 +17,9 @@ public class LevelBonus extends GameState {
 	private Background bg;
 	OggettoInvisibile o;
 	private Cassiopea cassiopea;
-	
+	BarraVita barraVita;
 	private ArrayList<Nemico> nemici;
-	private BarraVitaBollicine barraVita;
+	private BarraVitaBollicine barraVitaBollicine;
 	
 	
 	public LevelBonus(GameStateManager gameStateManagerBONUS) {
@@ -42,10 +42,11 @@ public class LevelBonus extends GameState {
 		cassiopea = new Cassiopea(mattonciniMap);
 		
 		cassiopea.setPosition(200, 80);
-		
+
 		
 		popoliamoNemici();
-		barraVita= new BarraVitaBollicine(cassiopea);
+		barraVita=new BarraVita(cassiopea);
+		barraVitaBollicine= new BarraVitaBollicine(cassiopea);
 		System.out.println("hai caricato il mondo di mammata???");
 	}
 	
@@ -84,11 +85,9 @@ private void popoliamoNemici() {
 //		
 		Bollicina f;
 		Point[] points2 = new Point[] {
-			new Point(400, 250),
-			new Point(660, 200),
-			new Point(1300, 300),
-			new Point(1400, 300),
-			new Point(1100, 300)
+			new Point(500, 100),
+			new Point(1950, 160),
+			
 		};
 		for(int i = 0; i < points2.length; i++) {
 			f = new Bollicina(mattonciniMap);
@@ -110,7 +109,13 @@ private void popoliamoNemici() {
 			new Point(580, 250),
 			new Point(510, 250),
 			new Point(540, 250),
-			new Point(570, 250)
+			new Point(570, 250),
+			new Point(600, 250),
+			new Point(630, 250),
+			new Point(660, 250),
+			new Point(690, 250),
+			new Point(620, 250),
+			new Point(650, 250)
 			
 			
 		};
@@ -177,6 +182,7 @@ if((sottr>250) ){
 			nemici.get(i).draw(g);
 		}
 		barraVita.draw(g);
+		barraVitaBollicine.draw(g);
 		if(Cassiopea.livelloBonusFine==true){
 			System.out.println("cosa succede????");	
 				gsm.currentState=gsm.LEVEL1STATE;

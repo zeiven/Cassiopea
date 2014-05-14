@@ -19,7 +19,7 @@ public class Level1State extends GameState {
 	private Background bg;
 	private FireBall fireball;
 	private ArrayList<Nemico> nemici;
-	private BarraVita barraVita;
+	public BarraVita barraVita;
 	Cassiopea cassiopea;
 	private ArrayList<Explosion> explosions;
 	public Level1State(GameStateManager gsm) {
