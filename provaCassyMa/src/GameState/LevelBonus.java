@@ -1,3 +1,4 @@
+
 package GameState;
 
 import Main.GamePanel;
@@ -50,6 +51,7 @@ public class LevelBonus extends GameState {
 		barraBollicine= new BarraVitaBollicine(cassiopea);
 		System.out.println("hai caricato il mondo di mammata???");
 	}
+	
 	
 private void popoliamoNemici() {
 		
