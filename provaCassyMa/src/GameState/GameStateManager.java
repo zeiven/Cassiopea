@@ -11,12 +11,13 @@ public class GameStateManager {
 	private GameState[] gameStates;
 	public int currentState;
 	
-	public static final int NUMGAMESTATES = 5;
+	public static final int NUMGAMESTATES = 6;
 	public static final int MENUSTATE = 0;
 	public static final int LEVEL1STATE = 1;
-	public static final int LEVEL2STATE = 2;
-	public static final int GAMEOVER=4;
-	public static final int EDITOR=3;
+	public static final int LEVEL2STATE = 3;
+	public static final int LEVEL1BONUS = 2;
+	public static final int GAMEOVER=5;
+	public static final int EDITOR=4;
 	
 	public GameStateManager() {
 		
@@ -33,6 +34,9 @@ public class GameStateManager {
 		if(state == LEVEL1STATE)
 			gameStates[state] = new Level1State(this);
 		if(state== LEVEL2STATE){
+			gameStates[state] = new Level2State(this);
+		}
+		if(state== LEVEL1BONUS){
 			gameStates[state] = new LevelBonus(this);
 		}
 	}

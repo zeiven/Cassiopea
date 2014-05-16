@@ -26,6 +26,7 @@ public class Cassiopea extends MapObject {
 	public static ArrayList<Point> pescCatt= new ArrayList<Point>();
 	public static ArrayList<Point> riccio= new ArrayList<Point>();
 	public static boolean livelloBonus;
+	public static boolean livello1FINE;
 	public static int vita;
 	public static boolean livelloBonusFine;
 	public static boolean livelloBonusEstato;
@@ -279,6 +280,13 @@ public class Cassiopea extends MapObject {
 				}
 				
 			}
+			
+			if(e instanceof FineLivello){
+				if(intersects(e)) {
+//					System.out.println("intersezione");
+				livello1FINE=true;}
+			}
+			
 			for(int j = 0; j < fireBalls.size(); j++) {
 				if(fireBalls.get(j).intersects(e)) {
 					e.hit(fireBallDamage);

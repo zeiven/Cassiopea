@@ -325,9 +325,9 @@ if(cassiopea.lives==0)
 	gsm.setState(1);
 	this.init();
 }
-	
-if(Cassiopea.livelloBonus==true){
-	System.out.println("MA COSAAAAAAAAAAAAAAAAAAA");
+
+if(Cassiopea.livello1FINE==true){
+	System.out.println("fineee livello1");
 	
 	gsm.currentState=gsm.LEVEL2STATE;
 	gsm.loadState(gsm.currentState);
@@ -338,6 +338,19 @@ if(Cassiopea.livelloBonus==true){
 //	this.init();
 }
 
+
+
+if(Cassiopea.livelloBonus==true){
+	System.out.println("MA COSAAAAAAAAAAAAAAAAAAA");
+	
+	gsm.currentState=gsm.LEVEL1BONUS;
+	gsm.loadState(gsm.currentState);
+	this.init();
+//	
+//	gsm=new GameStateManager();
+//	gsm.setState(2);
+//	this.init();
+}
 
 	}
 	
