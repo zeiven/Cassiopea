@@ -34,7 +34,7 @@ public class LevelBonus extends GameState {
 		System.out.println("init state bonus");
 		mattonciniMap = new mattonciniMap(30);
 		
-		mattonciniMap.loadmattoncinis("/Tilesets/provaMondo.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
+		mattonciniMap.loadmattoncinis("/Tilesets/mattoncini.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
 		mattonciniMap.loadMap("/Maps/levelBonus.map"); //primo livello..fa na pocu schifu, però CAMINA !!
 		mattonciniMap.setPosition(0, 0);
 		
@@ -190,7 +190,7 @@ if((sottr>250) ){
 				gsm.currentState=gsm.LEVEL1STATE;
 				gsm.loadState(gsm.currentState);
 				
-			this.init();	
+//			this.init();	
 				
 			}	
 		

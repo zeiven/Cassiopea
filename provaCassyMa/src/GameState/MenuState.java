@@ -1,11 +1,14 @@
 package GameState;
 
+import Main.mp3Music;
 import TileMap.Background;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class MenuState extends GameState {
+	
+	private mp3Music musica = new mp3Music();
 	
 	private Background bg;
 	
@@ -39,6 +42,7 @@ public class MenuState extends GameState {
 			
 			font = new Font("Arial", Font.PLAIN, 12);
 			
+			musica.start("Resources/Musica/Fly.mp3");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -79,6 +83,7 @@ public class MenuState extends GameState {
 	
 	private void select() {
 		if(currentChoice == 0) {
+			musica.stop();
 			gsm.setState(GameStateManager.LEVEL1STATE);
 		}
 		if(currentChoice == 1) {

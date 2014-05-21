@@ -31,6 +31,7 @@ public class Cassiopea extends MapObject {
 	public static boolean livelloBonusFine;
 	public static boolean livelloBonusEstato;
 	public static boolean checkLoad=true;
+	public static boolean SnakeMorto=false;
 	//CASSY
 	public int lives=5;
 	public int health;
@@ -58,7 +59,7 @@ public class Cassiopea extends MapObject {
 //	// animations
 	private ArrayList<BufferedImage[]> sprites;
 	private final int[] numFrames = {
-		2, 8, 1, 2, 4, 2, 5
+		2, 8, 1, 2, 8, 2, 5
 	};
 //	
 //	// animation actions
@@ -106,7 +107,7 @@ public class Cassiopea extends MapObject {
 			
 			BufferedImage spritesheet = ImageIO.read(
 				getClass().getResourceAsStream(
-					"/Sprites/Player/cassiopea5.gif"
+					"/Sprites/Player/spritesJelly.gif"
 				)
 			);
 			
@@ -212,10 +213,11 @@ public class Cassiopea extends MapObject {
 
 			
 			// check enemy collision
-			if(!(e instanceof Fitoplancton) && !(e instanceof Bollicina) && !(e instanceof FineLivello) && !(e instanceof OggettoInvisibile)){
+			if(!(e instanceof Fitoplancton) && !(e instanceof Bollicina) && !(e instanceof FineLivello) && !(e instanceof OggettoInvisibile) && !(e instanceof Snake)){
 			if(intersects(e)) {
 				hit(e.getDamage());}
 			}
+			
 			
 			if(e instanceof Fitoplancton){
 //				pointsFI[ind]= new Point(e.getx(),e.gety()); 
@@ -266,6 +268,32 @@ public class Cassiopea extends MapObject {
 	
 				}
 			}
+			
+			if(e instanceof Snake){
+				if(intersects(e)) {
+					System.out.println(" e.getx() "+ e.getx()+ " e.gety() "+e.gety()+" getx() "+ getx()+ " gety() "+gety());
+					if(e.gety()>=gety()+10){
+						
+						if(e.getx()<= getx() ){
+						System.out.println("ma che cazo");
+						SnakeMorto=true;
+//				System.out.println(" e.getx() "+ e.getx()+ " e.gety() "+e.gety()+" getx() "+ getx()+ " gety() "+gety());
+					e.setPosition(0, 0);}
+						else if(e.getx()>= getx()){
+							SnakeMorto=true;
+						System.out.println("ma che cazo2");
+//				System.out.println(" e.getx() "+ e.getx()+ " e.gety() "+e.gety()+" getx() "+ getx()+ " gety() "+gety());
+					e.setPosition(0, 0);}
+					}
+					else if(e.gety()<gety()+10){
+						SnakeMorto=false;
+						hit(e.getDamage());
+					}
+				}	
+	
+				
+			}
+			
 			if(e instanceof BucoNero){
 				if(intersects(e)) {
 					
