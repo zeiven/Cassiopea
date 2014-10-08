@@ -251,8 +251,8 @@ private void popoliamoNemici() {
 	
 		FineLivello fi;
 		fi= new FineLivello(mattonciniMap);
-//		fi.setPosition(2700, 370);
-		fi.setPosition(200, 300);
+	fi.setPosition(2700, 370);
+//		fi.setPosition(200, 300);
 		nemici.add(fi);
 //		Bollicina bol;
 //		Point[] points5 = new Point[] {
