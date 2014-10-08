@@ -34,7 +34,7 @@ public class LevelBonus extends GameState {
 		System.out.println("init state bonus");
 		mattonciniMap = new mattonciniMap(30);
 		
-		mattonciniMap.loadmattoncinis("/Tilesets/provaMondo.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
+		mattonciniMap.loadmattoncinis("/Tilesets/mattoncini.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
 		mattonciniMap.loadMap("/Maps/levelBonus.map"); //primo livello..fa na pocu schifu, però CAMINA !!
 		mattonciniMap.setPosition(0, 0);
 		
@@ -159,6 +159,13 @@ if((sottr>250) ){
 	System.out.println("MORTA");
 	cassiopea.setPosition(200, 80);
 	o.setPosition(200, 100);
+	if(cassiopea.health>1)
+	cassiopea.health--;
+	else {
+		cassiopea.lives--;
+		cassiopea.health=5;}
+	
+	
 }
 
 //if(GamePanel.HEIGHT / 2 -cassiopea.gety()<GamePanel.HEIGHT / 2 -o.gety() ){
@@ -186,11 +193,12 @@ if((sottr>250) ){
 		barraVita.draw(g);
 		barraBollicine.draw(g);
 		if(Cassiopea.livelloBonusFine==true){
+			Cassiopea.health++;
 			System.out.println("cosa succede????");	
 				gsm.currentState=gsm.LEVEL1STATE;
 				gsm.loadState(gsm.currentState);
 				
-			this.init();	
+//			this.init();	
 				
 			}	
 		

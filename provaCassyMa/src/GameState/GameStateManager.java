@@ -16,8 +16,9 @@ public class GameStateManager {
 	public static final int LEVEL1STATE = 1;
 	public static final int LEVEL2STATE = 3;
 	public static final int LEVEL1BONUS = 2;
-	public static final int GAMEOVER=5;
-	public static final int EDITOR=4;
+	public static final int LEVEL2BONUS = 4;
+	public static final int GAMEOVER=6;
+	public static final int EDITOR=5;
 	
 	public GameStateManager() {
 		
@@ -38,6 +39,9 @@ public class GameStateManager {
 		}
 		if(state== LEVEL1BONUS){
 			gameStates[state] = new LevelBonus(this);
+		}
+		if(state== LEVEL2BONUS){
+			gameStates[state] = new LevelBonus2(this);
 		}
 	}
 	

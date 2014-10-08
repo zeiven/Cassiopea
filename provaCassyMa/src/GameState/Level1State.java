@@ -1,6 +1,7 @@
 package GameState;
 
 import Main.GamePanel;
+import Main.mp3Music;
 import TileMap.*;
 import Entity.*;
 import Entity.Enemies.BucoNero;
@@ -15,6 +16,7 @@ import java.util.Collection;
 
 public class Level1State extends GameState {
 	
+	private mp3Music musicaLvl1 = new mp3Music();
 	private mattonciniMap mattonciniMap; // mattoncini map
 	private Background bg;
 	private FireBall fireball;
@@ -30,7 +32,7 @@ public class Level1State extends GameState {
 	public void init() {
 		
 		mattonciniMap = new mattonciniMap(30);
-		mattonciniMap.loadmattoncinis("/Tilesets/grasstileset1.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
+		mattonciniMap.loadmattoncinis("/Tilesets/mattoncini.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
 		mattonciniMap.loadMap("/Maps/level1-1.map"); //primo livello..fa na pocu schifu, però CAMINA !!
 		mattonciniMap.setPosition(0, 0);
 		
@@ -47,12 +49,19 @@ public class Level1State extends GameState {
 		popoliamoNemici();
 		barraVita= new BarraVita(cassiopea);
 		explosions= new ArrayList<Explosion>();
+		System.out.println("ciao sonoscema");
+		if(cassiopea.livelloBonusEstato==false){
+			musicaLvl1.start("Resources/Musica/Turkish March Mozart.mp3");
+		}
 	}
 	
 	
 private void popoliamoNemici() {
 		
 		nemici = new ArrayList<Nemico>();
+		Snake sna=new Snake(mattonciniMap);
+		sna.setPosition(100, 375);
+		nemici.add(sna);
 		
 		if(cassiopea.livelloBonusEstato==false){
 		PesciolinoCattivo s;
@@ -242,7 +251,8 @@ private void popoliamoNemici() {
 	
 		FineLivello fi;
 		fi= new FineLivello(mattonciniMap);
-		fi.setPosition(460, 280);
+//		fi.setPosition(2700, 370);
+		fi.setPosition(200, 300);
 		nemici.add(fi);
 //		Bollicina bol;
 //		Point[] points5 = new Point[] {
@@ -297,6 +307,7 @@ if(Cassiopea.livelloBonusEstato==false){
 				explosions.add(
 					new Explosion(e.getx(), e.gety()));
 				}
+			
 			}
 		
 		for(int i = 0; i < explosions.size(); i++) {
@@ -328,10 +339,10 @@ if(cassiopea.lives==0)
 
 if(Cassiopea.livello1FINE==true){
 	System.out.println("fineee livello1");
-	
+	musicaLvl1.stop();
 	gsm.currentState=gsm.LEVEL2STATE;
 	gsm.loadState(gsm.currentState);
-	this.init();
+//	this.init();
 //	
 //	gsm=new GameStateManager();
 //	gsm.setState(2);
@@ -345,7 +356,7 @@ if(Cassiopea.livelloBonus==true){
 	
 	gsm.currentState=gsm.LEVEL1BONUS;
 	gsm.loadState(gsm.currentState);
-	this.init();
+//	this.init();
 //	
 //	gsm=new GameStateManager();
 //	gsm.setState(2);
@@ -383,7 +394,10 @@ if(Cassiopea.livelloBonus==true){
 		if(k == KeyEvent.VK_RIGHT) cassiopea.setRight(true);
 		if(k == KeyEvent.VK_UP) cassiopea.setUp(true);
 		if(k == KeyEvent.VK_DOWN) cassiopea.setDown(true);
-		if(k == KeyEvent.VK_W) cassiopea.setJumping(true);
+		if(k == KeyEvent.VK_W) {
+			System.out.println("k "+k);
+			cassiopea.setJumping(true);
+		}
 		if(k == KeyEvent.VK_E) cassiopea.setGliding(true);
 		if(k == KeyEvent.VK_F) cassiopea.setFiring();
 		if(k == KeyEvent.VK_Z) cassiopea.setScratching();
