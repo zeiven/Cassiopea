@@ -30,6 +30,7 @@ public SpeechDetection(){
 
 private void captureAudio(){
     try{
+    	
         audioFormat = getAudioFormat();
         DataLine.Info dataLineInfo = new   
          DataLine.Info(TargetDataLine.class,audioFormat);
@@ -110,7 +111,7 @@ class CaptureThread extends Thread {
                     voiceFreq = (countzero/2)+1;               
                 // calculates the number of frequency and 
                                     // stores to the voiceFreq variable
-                    if(voiceFreq>=60 && voiceFreq<=350){
+                    if(voiceFreq>=40 && voiceFreq<=350){
                     	salta=true;
                         System.out.println("Voice"+voiceFreq);}
                     else{

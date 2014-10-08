@@ -1,6 +1,7 @@
 package Entity;
 
 import Entity.Enemies.BucoNero;
+import Entity.Enemies.BucoNero1;
 import Entity.Enemies.Onde;
 import Entity.Enemies.PesciolinoCattivo;
 import Entity.Enemies.Riccio;
@@ -30,12 +31,16 @@ public class Cassiopea extends MapObject {
 	public static int vita;
 	public static boolean livelloBonusFine;
 	public static boolean livelloBonusEstato;
+	public static boolean livelloBonus2Fine;
+	public static boolean livelloBonus2Estato;
+	public static boolean livelloBonus2;
 	public static boolean checkLoad=true;
 	public static boolean SnakeMorto=false;
 	//CASSY
-	public int lives=5;
-	public int health;
-	private int maxHealth;
+	static int contaCibo;
+	public static int lives=5;
+	public static int health=5;
+	private static int maxHealth=5;
 	int highscore;
 	private int maxFire;	
 	// fireball
@@ -92,7 +97,7 @@ public class Cassiopea extends MapObject {
 		
 		facingRight = true;
 		
-		health = maxHealth = 5;
+	//	health = maxHealth = 5;
 		fire = maxFire = 2500;
 		
 		fireCost = 200;
@@ -259,11 +264,19 @@ public class Cassiopea extends MapObject {
 					checkLoad=false;
 					}
 			}
+			if(e instanceof Keys){
+				if(intersects(e)) {
+					e.setPosition(-1, -1);
+					livelloBonus2Fine=true;
+					livelloBonus2=false;
+				}
+			}
 				
 			if(e instanceof Onde){
 				if(intersects(e)) {
+					
 					setPosition(100, 100);
-					health--;
+					//health--;
 					
 	
 				}
@@ -296,21 +309,36 @@ public class Cassiopea extends MapObject {
 			
 			if(e instanceof BucoNero){
 				if(intersects(e)) {
-					
+						health++;
 //					setPosition(100, 100);
 				livelloBonusEstato=true;
 				livelloBonus=true;
 				
 				livelloBonusFine=false;
+				
 				setPosition(1000, 500);
 //				vita=health;
 				System.out.println("viataaaaaaaaaaaaaaaaaaaa ");
 				}
+			}
+				if(e instanceof BucoNero1){
+					if(intersects(e)) {
+						health++;	
+//						setPosition(100, 100);
+					livelloBonus2Estato=true;
+					livelloBonus2=true;
+					
+					livelloBonus2Fine=false;
+					setPosition(1000, 500);
+//					vita=health;
+					System.out.println("viataaaaaaaaaaaaaaaaaaaa ");
+					}
 				
 			}
 			
 			if(e instanceof FineLivello){
 				if(intersects(e)) {
+					
 //					System.out.println("intersezione");
 				livello1FINE=true;}
 			}

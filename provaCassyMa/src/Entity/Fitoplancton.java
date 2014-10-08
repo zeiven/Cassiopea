@@ -12,13 +12,13 @@ import javax.imageio.ImageIO;
 public class Fitoplancton extends Nemico {
 	
 	private BufferedImage[] sprites;
-	static int contaCibo;
+	
 	
 	public Fitoplancton(mattonciniMap tm) {
 		
 		super(tm);
 
-		contaCibo=0;
+		
 		moveSpeed = 0.3;
 		maxSpeed = 0.3;
 		fallSpeed = 0.2;
@@ -92,15 +92,15 @@ public class Fitoplancton extends Nemico {
 	}
 	
 	public void setContaCibo(){
-		contaCibo++;
+		Cassiopea.contaCibo++;
 	}
 	
 	public void ResetContaCibo(){
-		contaCibo=0;
+		Cassiopea.contaCibo=0;
 	}
 	
 	public int getContaCibo(){
-		return contaCibo;
+		return Cassiopea.contaCibo;
 	}
 }
 

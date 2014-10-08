@@ -4,6 +4,7 @@ import Main.GamePanel;
 import TileMap.*;
 import Entity.*;
 import Entity.Enemies.BucoNero;
+import Entity.Enemies.BucoNero1;
 import Entity.Enemies.Onde;
 import Entity.Enemies.PesciolinoCattivo;
 import Entity.Enemies.Riccio;
@@ -14,6 +15,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
+
+
+
 
 
 
@@ -41,7 +45,7 @@ public class Level2State extends GameState {
 	}
 	
 	public void init() {
-		SpeechDetection s = new SpeechDetection();
+		
 		mattonciniMap = new mattonciniMap(30);
 		mattonciniMap.loadmattoncinis("/Tilesets/grasstileset1.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
 		mattonciniMap.loadMap("/Maps/level2-1.map"); //primo livello..fa na pocu schifu, però CAMINA !!
@@ -51,11 +55,11 @@ public class Level2State extends GameState {
 		bg = new Background("/Backgrounds/fondaleMarino.jpeg", 0.1);
 		
 		cassiopea = new Cassiopea(mattonciniMap);
-//		if(Cassiopea.livelloBonusEstato==false){
+		if(Cassiopea.livelloBonus2Estato==false){
 			cassiopea.setPosition(100, 100);
-//			}
-//			else
-//				cassiopea.setPosition(1030, 390);
+			}
+			else
+				cassiopea.setPosition(1030, 390);
 //		
 		
 		popoliamoNemici();
@@ -68,6 +72,19 @@ private void popoliamoNemici() {
 		
 	
 		nemici = new ArrayList<Nemico>();
+		if(Cassiopea.livelloBonus2Estato==false){
+			BucoNero1 b;
+			Point[] points4 = new Point[] {
+				new Point(1000, 390),
+				
+			};
+			for(int i = 0; i < points4.length; i++) {
+				b = new BucoNero1(mattonciniMap);
+				b.setPosition(points4[i].x, points4[i].y);
+				nemici.add(b);
+			}
+	}
+
 		Onde o;
 		Point[] points3 = new Point[] { 
 				new Point(565, 400), 
@@ -306,12 +323,7 @@ private void popoliamoNemici() {
 	
 	
 	public void update() {
-		if(SpeechDetection.salta==true)		{
-				
-				cassiopea.setJumping(true);
-		}
-		else
-			cassiopea.setJumping(false);
+		
 		// update cassy<3
 		cassiopea.update();
 		
@@ -361,15 +373,15 @@ if(cassiopea.lives==0)
 {
 	
 	gsm=new GameStateManager();
-	Cassiopea.livelloBonusEstato=false;
-	gsm.setState(1);
+	Cassiopea.livelloBonus2Estato=false;
+	gsm.setState(3);
 	this.init();
 }
 	
-if(Cassiopea.livelloBonus==true){
+if(Cassiopea.livelloBonus2==true){
 	System.out.println("MA COSAAAAAAAAAAAAAAAAAAA");
 	
-	gsm.currentState=gsm.LEVEL2STATE;
+	gsm.currentState=gsm.LEVEL2BONUS;
 	gsm.loadState(gsm.currentState);
 	this.init();
 //	
@@ -412,30 +424,15 @@ if(Cassiopea.livelloBonus==true){
 //		
 		if(k == KeyEvent.VK_LEFT){
 			cassiopea.setLeft(true);
-//			if(SpeechDetection.salta==true)		{
-//				k=87;
-//				if(k == 87){
-//				System.out.println("cucu ");
-//				cassiopea.setJumping(true);}
-//				}
-//			if(SpeechDetection.salta==false){			
-//			
-//				cassiopea.setJumping(false);
-//
-//
-//		}
-//			
+//						
 		}
 		
 		
 		if(k == KeyEvent.VK_RIGHT) cassiopea.setRight(true);
 		if(k == KeyEvent.VK_UP)cassiopea.setUp(true);
 		
-				
-//			}
-		//}
 		if(k == KeyEvent.VK_DOWN) cassiopea.setDown(true);
-//		if(k == KeyEvent.VK_W) cassiopea.setJumping(true);
+		if(k == KeyEvent.VK_W) cassiopea.setJumping(true);
 		if(k == KeyEvent.VK_E) cassiopea.setGliding(true);
 		if(k == KeyEvent.VK_F) cassiopea.setFiring();
 		if(k == KeyEvent.VK_Z) cassiopea.setScratching();
@@ -447,11 +444,11 @@ if(Cassiopea.livelloBonus==true){
 	}
 	public void keyReleased(int k) {
 		if(k == KeyEvent.VK_LEFT) cassiopea.setLeft(false);
-		if(k == KeyEvent.VK_RIGHT) cassiopea.setRight(true);
+		if(k == KeyEvent.VK_RIGHT) cassiopea.setRight(false);
 		
 		if(k == KeyEvent.VK_UP) cassiopea.setUp(false);
 		if(k == KeyEvent.VK_DOWN) cassiopea.setDown(false);
-//		if(k == KeyEvent.VK_W) cassiopea.setJumping(false);
+		if(k == KeyEvent.VK_W) cassiopea.setJumping(false);
 		
 		if(k == KeyEvent.VK_E) cassiopea.setGliding(false);
 		

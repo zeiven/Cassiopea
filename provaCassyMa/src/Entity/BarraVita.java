@@ -38,7 +38,7 @@ public class BarraVita {
 			45
 		);
 		g.drawString(
-		Fitoplancton.contaCibo+"",
+		Cassiopea.contaCibo+"",
 			30,
 			64
 		);

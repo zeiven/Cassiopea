@@ -32,7 +32,7 @@ public class Level1State extends GameState {
 	public void init() {
 		
 		mattonciniMap = new mattonciniMap(30);
-		mattonciniMap.loadmattoncinis("/Tilesets/mattoncinil.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
+		mattonciniMap.loadmattoncinis("/Tilesets/mattoncini.gif"); // è l'immagine intera di quello che creerà il mondo, mattoncini ecc ecc
 		mattonciniMap.loadMap("/Maps/level1-1.map"); //primo livello..fa na pocu schifu, però CAMINA !!
 		mattonciniMap.setPosition(0, 0);
 		

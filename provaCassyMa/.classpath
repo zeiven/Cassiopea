@@ -7,6 +7,6 @@
 	<classpathentry kind="lib" path="Libs/tritonus_share.jar"/>
 	<classpathentry kind="src" path="Resources"/>
 	<classpathentry kind="src" path="audio_work"/>
-	<classpathentry kind="lib" path="/media/PENNETTA/Cassiopea/jaudiotagger.jar"/>
+	<classpathentry kind="lib" path="/home/pierangela/Scrivania/ECLIPSEOK/librerieEsterne/jaudiotagger.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
