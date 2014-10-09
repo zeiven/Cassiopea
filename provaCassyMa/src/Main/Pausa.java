@@ -1,6 +1,5 @@
 package Main;
 
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
@@ -8,7 +7,6 @@ import javax.imageio.ImageIO;
 
 public class Pausa {
 
-	private Font font;
 	private Image image;
 	public Pausa()
 	{

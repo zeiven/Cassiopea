@@ -219,6 +219,9 @@ if((sottr>250) ){
 //			GameStateManager.pauseLock.lock();
 //			GameStateManager.pauseCondition.signalAll();
 //			GameStateManager.pauseLock.unlock();
+			GamePanel.lock.lock();
+			GamePanel.condition.signalAll();
+			GamePanel.lock.unlock();
 		}
 		
 	}

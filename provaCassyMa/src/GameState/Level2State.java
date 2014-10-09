@@ -438,6 +438,10 @@ if(Cassiopea.livelloBonus2==true){
 		if(k == KeyEvent.VK_Z) cassiopea.setScratching();
 		if(k == KeyEvent.VK_P){
 			GamePanel.pausa=!GamePanel.pausa;
+//			GameStateManager.pause=!GameStateManager.pause;
+ 			GamePanel.lock.lock();
+			GamePanel.condition.signalAll();
+			GamePanel.lock.unlock();
 		}
 		
 		

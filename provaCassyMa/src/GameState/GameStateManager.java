@@ -11,6 +11,7 @@ public class GameStateManager {
 	private GameState[] gameStates;
 	public int currentState;
 	
+
 	public static final int NUMGAMESTATES = 6;
 	public static final int MENUSTATE = 0;
 	public static final int LEVEL1STATE = 1;

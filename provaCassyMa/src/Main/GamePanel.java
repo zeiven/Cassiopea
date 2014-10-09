@@ -3,18 +3,27 @@ package Main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 import javax.swing.JPanel;
+
 import GameState.GameStateManager;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel 
 	implements Runnable, KeyListener{
 	
+	 Pausa pausaObject=new Pausa();
+
 	// dimensions
 	public static final int WIDTH = 468;
 	public static final int HEIGHT = 268;
 	public static final int SCALE = 2;
 	public static boolean pausa=false;
+	public static Lock lock=new ReentrantLock();
+	public static Condition condition=lock.newCondition();
 	
 	// game thread
 	private Thread thread;
@@ -92,11 +101,22 @@ public class GamePanel extends JPanel
 //				GameStateManager.pauseLock.unlock();
 //			
 //			}
-			start = System.nanoTime();
-			if(!pausa)
+		    while(pausa)
 			{
-				update();
+				try {
+					drawToScreen();
+					lock.lock();
+					condition.await();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				lock.unlock();
 			}
+			start = System.nanoTime();
+			
+			
+			update();
 			draw();
 			drawToScreen();
 			
@@ -124,10 +144,8 @@ public class GamePanel extends JPanel
 	private void drawToScreen() {
 		Graphics g2 = getGraphics();
 		if(pausa)
-		{
-			Pausa pausa=new Pausa();
-			pausa.draw(g);
-			
+		{		
+			pausaObject.draw(g);	
 		}
 		g2.drawImage(image, 0, 0,
 				WIDTH * SCALE, HEIGHT * SCALE,

@@ -404,9 +404,9 @@ if(Cassiopea.livelloBonus==true){
 		if(k == KeyEvent.VK_P){
 			GamePanel.pausa=!GamePanel.pausa;
 //			GameStateManager.pause=!GameStateManager.pause;
-//			GameStateManager.pauseLock.lock();
-//			GameStateManager.pauseCondition.signalAll();
-//			GameStateManager.pauseLock.unlock();
+ 			GamePanel.lock.lock();
+			GamePanel.condition.signalAll();
+			GamePanel.lock.unlock();
 		}
 		
 	}
