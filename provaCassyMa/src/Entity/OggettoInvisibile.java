@@ -36,7 +36,7 @@ public class OggettoInvisibile extends Nemico {
 			
 			BufferedImage spritesheet = ImageIO.read(
 				getClass().getResourceAsStream(
-					"/Sprites/Enemies/onde1.gif"
+					"/Sprites/Enemies/onde.gif"
 				)
 			);
 			
@@ -92,7 +92,8 @@ public class OggettoInvisibile extends Nemico {
 		// update position
 		getNextPosition();
 		checkmattonciniMapCollision();
-		setPosition(xtemp, ytemp);
+		if(getx()<1960)
+			setPosition(xtemp, ytemp);
 		
 		//  indietreggiaare
 //		if(indietreggiare) {

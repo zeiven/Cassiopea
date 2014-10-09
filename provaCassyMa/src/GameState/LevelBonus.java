@@ -135,7 +135,9 @@ private void popoliamoNemici() {
 		
 		// update cassy<3
 		cassiopea.update();
-		o.update();
+			
+			o.update();
+			
 		//**********SETPOSITION SERVE A FARE "LA MATRICE A SCORRIMENTO" 
 //oggettoInvisibile.update();
 		mattonciniMap.setPosition(
@@ -148,13 +150,15 @@ private void popoliamoNemici() {
 		
 		for(int i = 0; i < nemici.size(); i++) {
 			Nemico e = nemici.get(i);
-			e.update();}
+			e.update();
+			}
 cassiopea.checkAttack(nemici);
-System.out.println("GamePanel.WIDTH / 2 -cassiopea.getx() "+ (GamePanel.WIDTH / 2 -cassiopea.getx()));
-System.out.println("GamePanel.WIDTH / 2 -o.getx() "+ (GamePanel.WIDTH / 2 -o.getx()));
+//System.out.println("GamePanel.WIDTH / 2 -cassiopea.getx() "+ (GamePanel.WIDTH / 2 -cassiopea.getx()));
+//System.out.println("GamePanel.WIDTH / 2 -o.getx() "+ (GamePanel.WIDTH / 2 -o.getx()));
 int provxCass=GamePanel.WIDTH / 2 -cassiopea.getx();
 int provxOgg=GamePanel.WIDTH / 2 -o.getx();
 int sottr=provxCass-provxOgg;
+
 if((sottr>250) ){
 	System.out.println("MORTA");
 	cassiopea.setPosition(200, 80);
@@ -164,7 +168,6 @@ if((sottr>250) ){
 	else {
 		cassiopea.lives--;
 		cassiopea.health=5;}
-	
 	
 }
 
