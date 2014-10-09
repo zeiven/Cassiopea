@@ -117,8 +117,46 @@ private void popoliamoNemici() {
 			new Point(660, 250),
 			new Point(690, 250),
 			new Point(620, 250),
-			new Point(650, 250)
+			new Point(650, 250),
 			
+			
+			new Point(710, 250),
+			new Point(740, 250),
+			new Point(770, 250),
+			new Point(790, 250),
+			new Point(810, 250),
+			//c'è lo spazietto...........lo ha deciso PAOLA
+			
+			
+			new Point(910, 250),
+			new Point(940, 250),
+			new Point(970, 250),
+			new Point(1000, 250),
+			new Point(1030, 250),
+			new Point(1060, 250),
+			new Point(1090, 250),
+			new Point(1120, 250),
+			new Point(1150, 250),
+			new Point(1180, 250),
+			new Point(1210, 250),
+			new Point(1240, 250),
+			new Point(1270, 250),
+			new Point(1300, 250),
+			
+			
+			
+			new Point(1630, 250),
+			new Point(1660, 250),
+			new Point(1690, 250),
+			new Point(1720, 250),
+			new Point(1750, 250),
+			new Point(1780, 250),
+		
+
+			new Point(1890, 250),
+			new Point(1920, 250),
+			new Point(1940, 250),
+			new Point(1970, 250)
 			
 		};
 		for(int i = 0; i < points3.length; i++) {
